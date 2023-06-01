@@ -3,7 +3,6 @@ html{
 }
 
 body{
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 1.6rem;
 }
 
@@ -12,4 +11,8 @@ button{
 }
 button:disabled{
     cursor: default;
+}
+.is-active {
+    font-weight: bold;
+    
 }
