@@ -63,7 +63,7 @@ test('should not set amount if valid input',() =>{
 test('should call onsubmit prop for valid form submission',() => {
     const onSubmitSpy = jest.fn();
     const wrapper = shallow(<ExpenseForm  expense={expenses[0]} onSubmit={onSubmitSpy} />);
-    wrapper.find('farm').simulate('submit',{
+    wrapper.find('form').simulate('submit',{
         preventDefault:() => { }
     });
     expect(wrapper.state('error')).toBe('');
@@ -86,6 +86,6 @@ test('should set calender focus on change',() =>{
     const focused = true;
     const wrapper = shallow(<ExpenseForm />);
     wrapper.find('SingleDatePicker').prop('onFocusChange')( focused );
-    expect(wrapper.state('calenderFocused')).toBe(focused);
+    expect(wrapper.state('calendarFocused')).toBe(focused);
 });
 
