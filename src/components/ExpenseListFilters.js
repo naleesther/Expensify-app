@@ -8,6 +8,7 @@ import {
   setStartDate,
   setEndDate,
 } from "../actions/filters";
+import 'react-dates/initialize';
 
 export class ExpenseListFilters extends React.Component {
   state = {
@@ -32,6 +33,7 @@ export class ExpenseListFilters extends React.Component {
   };
 
   render() {
+    console.log(this.props.filters);
     return (
       <div>
         <input
@@ -43,7 +45,7 @@ export class ExpenseListFilters extends React.Component {
           <option value='date'>Date</option>
           <option value='amount'>Amount</option>
         </select>
-        {/* <DateRangePicker
+        <DateRangePicker
           startDate={this.props.filters.startDate}
           endDate={this.props.filters.endDate}
           onDatesChange={this.onDatesChange}
@@ -51,8 +53,8 @@ export class ExpenseListFilters extends React.Component {
           onFocusChange={this.onFocusChange}
           showClearDates={true}
           numberOfMonths={1}
-          isOutsideRange={() => false}
-        /> */}
+          isOutsideRange={() => false} 
+        />
       </div>
     );
   }
