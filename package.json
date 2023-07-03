@@ -12,7 +12,7 @@
     "test": "cross-env NODE_ENV=test jest --config=jest.config.json",
     "scss": "node-sass --watch scss -o css",
     "start":"node server/server.js",
-    "build" :"yarn && webpack -p --env production"
+    "build" :"yarn && live-server public/"
   },
   "dependencies": {
     "@babel/cli": "^7.10.5",
