@@ -12,8 +12,7 @@
     "test": "cross-env NODE_ENV=test jest --config=jest.config.json",
     "scss": "node-sass --watch scss -o css",
     "start":"node server/server.js",
-    "netlify-postbuild" :"yarn run build:prod",
-    "build": "webpack"
+    "netlify-postbuild" :"yarn run build:prod"
   },
   "dependencies": {
     "@babel/cli": "^7.10.5",
