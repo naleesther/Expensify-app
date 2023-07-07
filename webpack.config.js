@@ -86,9 +86,14 @@ module.exports = (env) => {
     ],
     devtool: isProduction ? "source-map" : "inline-source-map",
     devServer: {
-      contentBase: path.join(__dirname, "public"),
-      historyApiFallback: true,
-      publicPath: "/dist/",
+      static: {
+        directory: path.join(__dirname, 'public'),
+        publicPath: '/',
+      },
+      compress: true,
+      port: 8080,
+      historyApiFallback: true
+      // liveReload: true,
     },
   };
 };

@@ -1,8 +1,5 @@
 node_modules/
+public/dist/
 # Local Netlify folder
-.netlify
-public/bundle.js
-public/bundle.js.map
-public/styles.css
-public/styles.css.map
+
 
