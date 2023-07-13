@@ -33,7 +33,7 @@ export class ExpenseListFilters extends React.Component {
   };
 
   render() {
-    console.log(this.props.filters);
+    // console.log(this.props.filters);
     return (
       <div>
         <input
