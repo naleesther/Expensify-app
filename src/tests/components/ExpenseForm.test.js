@@ -3,7 +3,7 @@ import { shallow } from "enzyme";
 import moment from "moment";
 import expenses from "../fixtures/expenses"
 import ExpenseForm from "../../components/ExpenseForm";
-
+import { SingleDatePicker } from 'react-dates';
 
 test('should render ExpenseForm correctly',() =>{
     const wrapper = shallow(<ExpenseForm />)
@@ -78,14 +78,14 @@ test('should call onsubmit prop for valid form submission',() => {
 test('should set new date on date change',() =>{
     const now = moment();
     const wrapper = shallow(<ExpenseForm />);
-    wrapper.find('SingleDatePicker').prop('onDateChange') (now);
+    wrapper.find(SingleDatePicker).prop('onDateChange')(now);
     expect(wrapper.state('createdAt')).toEqual(now);
 });
 
 test('should set calender focus on change',() =>{
     const focused = true;
     const wrapper = shallow(<ExpenseForm />);
-    wrapper.find('SingleDatePicker').prop('onFocusChange')( focused );
-    expect(wrapper.state('calendarFocused')).toBe(focused);
+    wrapper.find(SingleDatePicker).prop('onFocusChange')( focused );
+    expect(wrapper.state('calendarFocused')).toEqual(focused);
 });
 
