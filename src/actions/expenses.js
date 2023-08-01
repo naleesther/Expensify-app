@@ -3,6 +3,10 @@ import  uuid from 'uuid';
 import expenses from '../tests/fixtures/expenses';
 //ADD_EXPENSE
 
+// export const db = (id) =>{
+//     database.ref()
+// }
+
 export const addExpense = (expense) => ({
     type: 'ADD_EXPENSE',
     expense
@@ -28,16 +32,17 @@ export const startAddExpense = (expenseData = {}) => {
 
 //REMOVE_EXPENSE
 
-export const removeExpense = ( {id} = {}) => ({
+export const removeExpense = ( {id}) => ({
     type: 'REMOVE_EXPENSE',
     id
 });
 
-export const startRemoveExpense = ( {id} = {}) =>{
-    return (dispatch) =>{
-         database.ref(`expenses/${id}`).remove();
-        dispatch(removeExpense({ id }));
-    }
+export const startRemoveExpense =( id) =>{
+    console.log(id); 
+    database.ref(`expenses/${id}`).remove().then(()=>{
+        
+ });
+ 
 }
 //EDIT_EXPENSE
 
@@ -46,6 +51,13 @@ export const editExpense = (id, updates) => ({
     id,
     updates
 });
+export const startEditExpense = (id, updates) =>{
+    return (dispatch) =>{
+        return database.ref(`expenses/${id}`).update(updates).then(() =>{
+            dispatch(editExpense(id,updates))
+        });
+    };
+};
 
 //SET_EXPENSE
 export const setExpenses = (expenses) => ({
