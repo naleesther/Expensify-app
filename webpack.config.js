@@ -99,8 +99,8 @@ module.exports = (env) => {
       },
       compress: true,
       port: 8080,
-      historyApiFallback: true
-      // liveReload: true,
+      historyApiFallback: true,
+      liveReload: true,
     },
   };
 };

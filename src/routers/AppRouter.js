@@ -1,25 +1,28 @@
-import React from 'react';
-import AddExpensePage from '../components/AddExpensePage';
-import { BrowserRouter,Route, Routes } from 'react-router-dom';
-import EditExpensePage from '../components/EditExpensePage';
-import ExpenseDashboardPage from '../components/ExpenseDashboardPage';
-import HelpPage from '../components/HelpPage';
-import NotFoundPage from '../components/NotFoundPage';
-import Header from '../components/Header';
+import React from "react";
+import { Route, Routes, BrowserRouter, Switch } from "react-router-dom";
+import createHistory from "history/createBrowserHistory";
+import AddExpensePage from "../components/AddExpensePage";
+import EditExpensePage from "../components/EditExpensePage";
+import ExpenseDashboardPage from "../components/ExpenseDashboardPage";
+import HelpPage from "../components/HelpPage";
+import NotFoundPage from "../components/NotFoundPage";
+import LoginPage from "../components/LoginPage";
+import PrivateRoute from "./PrivateRoute";
 
+export const history = createHistory();
 
 const AppRouter = () => (
-    <BrowserRouter>
-        <div>
-          <Header/>
-        <Routes>
-            <Route exact path="/" element={<ExpenseDashboardPage/>}/>
-            <Route path="/create" element={<AddExpensePage/>}/>
-            <Route path="/edit/:id" element={<EditExpensePage/>}/>
-            <Route path="/help" element={<HelpPage/>} />
-            <Route path="*" element={<NotFoundPage/>} />
-        </Routes>
-        </div>    
-    </BrowserRouter>
+  <BrowserRouter>
+    <div>
+      <Switch>
+        <Route exact path="/" element={<LoginPage />} />
+        <PrivateRoute path="/dashboard" element={<ExpenseDashboardPage />} />
+        <PrivateRoute path="/create" element={<AddExpensePage />} />
+        <PrivateRoute path="/edit/:id" element={<EditExpensePage />} />
+        <Route path="/help" element={<HelpPage />} />
+        <Route path="*" element={<NotFoundPage />} />
+      </Switch>
+    </div>
+  </BrowserRouter>
 );
 export default AppRouter;

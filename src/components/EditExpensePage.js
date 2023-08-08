@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import ExpenseForm from "./ExpenseForm";
 import { startEditExpense, startRemoveExpense } from "../actions/expenses";
-import { Link, redirect } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 
 export class EditExpensePage extends React.Component {
   onSubmit = (expense) => {
