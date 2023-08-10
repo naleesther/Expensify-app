@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import ExpenseForm from "./ExpenseForm";
 import { startEditExpense, startRemoveExpense } from "../actions/expenses";
-import { Link, Redirect } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 
 export class EditExpensePage extends React.Component {
   onSubmit = (expense) => {
@@ -11,23 +11,15 @@ export class EditExpensePage extends React.Component {
   };
 
   onRemove = () => {
-    // console.log(this.props.expense);
-    this.props.startRemoveExpense(this.props.expense.id);
-    // this.props.history('/')
+    this.props.startRemoveExpense({ id: this.props.expense.id });
+    this.props.history.push("/");
   };
   render() {
     // const location = useLocation();
     return (
       <div>
         <ExpenseForm expense={this.props.expense} onSubmit={this.onSubmit} />
-        <button
-          onClick={() => {
-            startRemoveExpense(this.props.expense.id);
-          }}
-        >
-          Remove
-        </button>
-        <button onClick={redirect("/")}>Link</button>
+        <button onClick={this.onRemove}>Remove</button>
       </div>
     );
   }
