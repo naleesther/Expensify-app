@@ -29,6 +29,7 @@
     "babel-polyfill": "^6.26.0",
     "css-loader": "^6.8.1",
     "express": "^4.15.4",
+    "file-loader": "^6.2.0",
     "firebase": "4.2.0",
     "history": "4.7.2",
     "jest": "26.4.1",
@@ -50,6 +51,7 @@
     "redux-thunk": "2.3.0",
     "sass-loader": "^13.3.2",
     "style-loader": "^3.3.3",
+    "url-loader": "^4.1.1",
     "uuid": "9.0.0",
     "validator": "^13.1.1",
     "webpack": "^5.88.1"

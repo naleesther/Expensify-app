@@ -2,11 +2,11 @@ const path = require("path");
 const webpack = require("webpack");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
-process.env.NODE_ENV = process.env.NODE_ENV || 'development';
-if (process.env.NODE_ENV ==='test') {
-  require('dotenv').config( {path:'.env.test'} );
-} else if(process.env.NODE_ENV ==='development') {
-  require('dotenv').config({ path:'.env.development'});
+process.env.NODE_ENV = process.env.NODE_ENV || "development";
+if (process.env.NODE_ENV === "test") {
+  require("dotenv").config({ path: ".env.test" });
+} else if (process.env.NODE_ENV === "development") {
+  require("dotenv").config({ path: ".env.development" });
 }
 
 module.exports = (env) => {
@@ -51,7 +51,7 @@ module.exports = (env) => {
           include: /images/,
           use: [
             {
-              loader: "file-loader",
+              loader: "url-loader",
               options: {
                 name: "[name].[ext]",
                 outputPath: "images/",
@@ -94,8 +94,8 @@ module.exports = (env) => {
     devtool: isProduction ? "source-map" : "inline-source-map",
     devServer: {
       static: {
-        directory: path.join(__dirname, 'public'),
-        publicPath: '/',
+        directory: path.join(__dirname, "public"),
+        publicPath: "/",
       },
       compress: true,
       port: 8080,
@@ -104,4 +104,3 @@ module.exports = (env) => {
     },
   };
 };
-
