@@ -12,7 +12,7 @@ export const Header = ({ startLogout }) => (
           to="/dashboard"
           activeClassName="is-active"
         >
-          <h1>Expensify</h1>
+          <h1>BoilerPlate</h1>
         </Link>
         <button className="button button--link" onClick={startLogout}>Logout</button>
       </div>
