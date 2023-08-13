@@ -1,9 +1,15 @@
+*{
+    box-sizing: border-box;
+}
+
 html{
     font-size: 62.2%;
 }
 
 body{
-    font-size: 1.6rem;
+    font-size: $m-size;
+    color:$dark-grey;
+    line-height: 1.6;
 }
 
 button{

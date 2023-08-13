@@ -11,6 +11,7 @@ import "./styles/styles.scss";
 import "react-dates/lib/css/_datepicker.css";
 import { firebase } from "./firebase/firebase";
 import { login, logout } from "./actions/auth";
+import LoadingPage from "./components/LoginPage";
 
 const store = configureStore();
 
@@ -26,7 +27,7 @@ const renderApp = () => {
     hasRendered = true;
   }
 };
-// ReactDOM.render(<p>Loading .....</p> , document.getElementById('app'));
+ReactDOM.render(<p>Loading........</p> , document.getElementById('app'));
 
 firebase.auth().onAuthStateChanged((user) => {
   if (user) {
@@ -44,13 +45,4 @@ firebase.auth().onAuthStateChanged((user) => {
   }
 });
 
-// import subtract,{ square,add} from './utils.js';
-// import './person.js'
-// import isSenior, { canDrink, isAdult } from './person.js';
-// console.log('app.js is running');
-// console.log(square(4));
-// console.log(add(20,20));
-// console.log(subtract(100,20));
-// console.log(isAdult(20));
-// console.log(canDrink(20));
-// console.log(isSenior(55));
+
